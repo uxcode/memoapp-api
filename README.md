@@ -35,7 +35,7 @@ Start api server
 PORT=3000 npm start
 ```
 
-#API Spec
+# API Spec
 - [Memo](#memo)
 	- [List](#memo__list)
 	- [Get](#memo__get)
@@ -49,15 +49,15 @@ PORT=3000 npm start
 	- [Add Memos](#label__addMemos)
 	- [Remove Memos](#label__removeMemos)
 
-#<span id="memo">Memo</span>
-##<span id="memo__list">List</span>
-####URL
+# <span id="memo">Memo</span>
+## <span id="memo__list">List</span>
+#### URL
 - GET /memos
 
-####Request Example
+#### Request Example
 GET /memos
 
-####Response
+#### Response
 | Level1 |
 |--------|
 | _id |
@@ -66,7 +66,7 @@ GET /memos
 | title |
 | content |
 | __v |
-###Response Example
+### Response Example
 
 ```json
 [
@@ -96,17 +96,17 @@ GET /memos
     }
 ]
 ```
-##<span id="memo__create">Create</span>
-####URL
+## <span id="memo__create">Create</span>
+#### URL
 - POST /memos
 
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | title | O | - | Title of memo |
 | content | X | empty string | content of memo |
-####Request Example
+#### Request Example
 POST /memos
 
 ```json
@@ -115,7 +115,7 @@ POST /memos
 	"content": "contentExample"
 }
 ```
-####Response
+#### Response
 | Level1 |
 |--------|
 | _id |
@@ -124,7 +124,7 @@ POST /memos
 | title |
 | content |
 | __v |
-###Response Example
+### Response Example
 
 ```json
 {
@@ -136,19 +136,19 @@ POST /memos
     "content": "contentExample"
 }
 ```
-##<span id="memo__get">Get</span>
-####URL
+## <span id="memo__get">Get</span>
+#### URL
 - GET /memos/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of memo to get |
 
-####Request Example
+#### Request Example
 GET /memos/5afbe8622c7caff319d454df
-####Response
+#### Response
 | Level1 |
 |--------|
 | _id |
@@ -157,7 +157,7 @@ GET /memos/5afbe8622c7caff319d454df
 | title |
 | content |
 | __v |
-###Response Example
+### Response Example
 
 ```json
 {
@@ -169,22 +169,22 @@ GET /memos/5afbe8622c7caff319d454df
     "content": "contentExample"
 }
 ```
-##<span id="memo__update">Update</span>
-####URL
+## <span id="memo__update">Update</span>
+#### URL
 - PUT /memos/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of memo to get |
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | title | X | - | title of memo |
 | content | X | - | content of memo |
-####Request Example
+#### Request Example
 PUT /memos/5afbe8622c7caff319d454df
 
 ```json
@@ -194,7 +194,7 @@ PUT /memos/5afbe8622c7caff319d454df
 }
 ```
 
-####Response
+#### Response
 | Level1 |
 |--------|
 | _id |
@@ -203,7 +203,7 @@ PUT /memos/5afbe8622c7caff319d454df
 | title |
 | content |
 | __v |
-###Response Example
+### Response Example
 ```json
 {
     "_id": "5afbe8622c7caff319d454df",
@@ -215,19 +215,19 @@ PUT /memos/5afbe8622c7caff319d454df
 }
 ```
 
-##<span id="memo__delete">Delete</span>
-####URL
+## <span id="memo__delete">Delete</span>
+#### URL
 - DELETE /memos/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of memo to get |
-####Request Example
+#### Request Example
 DELETE /memos/5afbe8622c7caff319d454df
 
-####Response
+#### Response
 | Level1 |
 |--------|
 | _id |
@@ -236,7 +236,7 @@ DELETE /memos/5afbe8622c7caff319d454df
 | title |
 | content |
 | __v |
-###Response Example
+### Response Example
 
 ```json
 {
@@ -249,15 +249,15 @@ DELETE /memos/5afbe8622c7caff319d454df
 }
 ```
 
-#<span id="label">Label</span>
-##<span id="label__list">List</span>
-####URL
+# <span id="label">Label</span>
+## <span id="label__list">List</span>
+#### URL
 - GET /labels
 
-####Request Example
+#### Request Example
 GET /labels
 
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -271,7 +271,7 @@ GET /labels
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 
 ```json
 [
@@ -302,17 +302,17 @@ GET /labels
     }
 ]
 ```
-##<span id="label__create">Create</span>
-####URL
+## <span id="label__create">Create</span>
+#### URL
 - POST /labels
 
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | title | O | - | Title of label |
 | content | X | empty string | content of label |
-####Request Example
+#### Request Example
 POST /labels
 
 ```json
@@ -320,7 +320,7 @@ POST /labels
 	"title": "titleExample"
 }
 ```
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -334,7 +334,7 @@ POST /labels
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 
 ```json
 {
@@ -346,19 +346,19 @@ POST /labels
     "memos": []
 }
 ```
-##<span id="label__get">Get</span>
-####URL
+## <span id="label__get">Get</span>
+#### URL
 - GET /labels/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of labels to get |
 
-####Request Example
+#### Request Example
 GET /labels/5afbee91141592fc9850ae38
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -372,7 +372,7 @@ GET /labels/5afbee91141592fc9850ae38
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 
 ```json
 {
@@ -393,22 +393,22 @@ GET /labels/5afbee91141592fc9850ae38
     ]
 }
 ```
-##<span id="label__update">Update</span>
-####URL
+## <span id="label__update">Update</span>
+#### URL
 - PUT /labels/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of label to update |
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | title | X | - | title of label |
 | memoIds | X | - | array of memo ids |
-####Request Example
+#### Request Example
 PUT /labels/5afbee91141592fc9850ae38
 
 ```json
@@ -417,7 +417,7 @@ PUT /labels/5afbee91141592fc9850ae38
 }
 ```
 
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -431,7 +431,7 @@ PUT /labels/5afbee91141592fc9850ae38
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 ```json
 {
     "_id": "5afbee91141592fc9850ae38",
@@ -452,19 +452,19 @@ PUT /labels/5afbee91141592fc9850ae38
 }
 ```
 
-##<span id="label__delete">Delete</span>
-####URL
+## <span id="label__delete">Delete</span>
+#### URL
 - DELETE /labels/:id
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of label to remove |
-####Request Example
+#### Request Example
 DELETE /labels/5afbe8622c7caff319d454df
 
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -478,7 +478,7 @@ DELETE /labels/5afbe8622c7caff319d454df
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 
 ```json
 {
@@ -499,21 +499,21 @@ DELETE /labels/5afbe8622c7caff319d454df
     ]
 }
 ```
-##<span id="label__addMemos">Add Memos</span>
-####URL
+## <span id="label__addMemos">Add Memos</span>
+#### URL
 - POST /labels/:id/memos
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of label to add |
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | memoIds | X | - | array of memo ids |
-####Request Example
+#### Request Example
 POST /labels/5afbee91141592fc9850ae38/memos
 
 ```json
@@ -522,7 +522,7 @@ POST /labels/5afbee91141592fc9850ae38/memos
 }
 ```
 
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -536,7 +536,7 @@ POST /labels/5afbee91141592fc9850ae38/memos
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 ```json
 {
     "_id": "5afbee91141592fc9850ae38",
@@ -565,21 +565,21 @@ POST /labels/5afbee91141592fc9850ae38/memos
 }
 ```
 
-##<span id="label__removeMemos">Remove Memos</span>
-####URL
+## <span id="label__removeMemos">Remove Memos</span>
+#### URL
 - DELETE /labels/:id/memos
 
-####Path variable
+#### Path variable
 
 | Name | Description |
 |--------|--------|
 | ID | Id of label to remove |
-####Parameters
+#### Parameters
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | memoIds | X | - | array of memo ids |
-####Request Example
+#### Request Example
 DELETE /labels/5afbee91141592fc9850ae38/memos
 
 ```json
@@ -588,7 +588,7 @@ DELETE /labels/5afbee91141592fc9850ae38/memos
 }
 ```
 
-####Response
+#### Response
 | Level1 | Level2 |
 |--------|--------|
 | _id |
@@ -602,7 +602,7 @@ DELETE /labels/5afbee91141592fc9850ae38/memos
 || title |
 || content |
 || __v ||
-###Response Example
+### Response Example
 ```json
 {
     "_id": "5afbee91141592fc9850ae38",
