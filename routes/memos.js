@@ -29,7 +29,7 @@ router.get('/:id', function(req, res, next) {
 
 /* PUT /memos/:id */
 router.put('/:id', function(req, res, next) {
-  Memo.findByIdAndUpdate(req.params.id, req.body, function (err, payload) {
+  Memo.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, payload) {
     if (err) return next(err);
     res.json(payload);
   });

@@ -17,11 +17,10 @@
       Memo CRUD Test:
       <ul>
         <li ng-repeat="memo in memos">
-          <input type="checkbox" ng-model="memo.completed" ng-change="update($index)">
-          <a ng-show="!editing[$index]" href="#/{{memo._id}}">{{memo.name}}</a>
+          <a ng-show="!editing[$index]" href="#/{{memo._id}}">{{memo.title}}</a>
           <button ng-show="!editing[$index]" ng-click="edit($index)">edit</button>
 
-          <input ng-show="editing[$index]" type="text" ng-model="memo.name">
+          <input ng-show="editing[$index]" type="text" ng-model="memo.title">
           <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
           <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button>
           <button ng-show="!editing[$index]" ng-click="remove($index)">remove</button>
@@ -31,9 +30,9 @@
     </script>
 
     <script type="text/ng-template" id="/memoDetails.html">
-      <h1>{{ memo.name }}</h1>
-      completed: <input type="checkbox" ng-model="memo.completed"><br>
-      note: <textarea ng-model="memo.note"></textarea><br><br>
+      <h1>{{ memo.title }}</h1>
+      createdAt: {{ memo.createdAt }}<br>
+      content: <textarea ng-model="memo.content"></textarea><br><br>
 
       <button ng-click="update()">Update</button>
       <button ng-click="remove()">Remove</button>
@@ -61,10 +60,11 @@
         .controller('MemoController', ['$scope', 'Memos', function ($scope, Memos) {
           $scope.editing = [];
           $scope.memos = Memos.query();
+          window.a = $scope.memos
 
           $scope.save = function(){
             if(!$scope.newMemo || $scope.newMemo.length < 1) return;
-            var memo = new Memos({ name: $scope.newMemo, completed: false });
+            var memo = new Memos({ title: $scope.newMemo });
 
             memo.$save(function(){
               $scope.memos.push(memo);
@@ -74,7 +74,9 @@
 
           $scope.update = function(index){
             var memo = $scope.memos[index];
-            Memos.update({id: memo._id}, memo);
+            Memos.update({id: memo._id}, {
+              title: memo.title,
+            });
             $scope.editing[index] = false;
           }
 
@@ -101,6 +103,15 @@
           $scope.remove = function(){
             Memos.remove({id: $scope.memo._id}, function(){
               $location.url('/');
+            });
+          }
+
+          $scope.update = function(){
+            var memo = $scope.memo;
+            Memos.update({id: memo._id}, {
+              content: memo.content,
+            }, function() {
+              $location.reload();
             });
           }
         }])
