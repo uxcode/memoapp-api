@@ -36,22 +36,22 @@ PORT=3000 npm start
 ```
 
 # API Spec
-###[Memo](#memo)
-- [List](#memoList)
-- [Get](#memoGet)
-- [Update](#memoUpdate)
-- [Delete](#memoDelete)
+### [Memo](#memo)
+- [List](#memo-list)
+- [Get](#memo-get)
+- [Update](#memo-update)
+- [Delete](#memo-delete)
 
-###[Label](#label)
-- [List](#labelList)
-- [Get](#labeGet)
-- [Update](#labelUpdate)
-- [Delete](#labelDelete)
-- [Add Memos](#labelAddMemos)
-- [Remove Memos](#labelRemoveMemos)
+### [Label](#label)
+- [List](#label-list)
+- [Get](#label-get)
+- [Update](#label-update)
+- [Delete](#label-delete)
+- [Add Memos](#label-add-memos)
+- [Remove Memos](#label-remove-memos)
 
 # <span id="memo">Memo</span>
-## <span id="memoList">List</span>
+## <span id="memo-list">List</span>
 #### URL
 - GET /memos
 
@@ -97,7 +97,7 @@ GET /memos
     }
 ]
 ```
-## <span id="memoCreate">Create</span>
+## <span id="memo-create">Create</span>
 #### URL
 - POST /memos
 
@@ -137,7 +137,7 @@ POST /memos
     "content": "contentExample"
 }
 ```
-## <span id="memoGet">Get</span>
+## <span id="memo-get">Get</span>
 #### URL
 - GET /memos/:id
 
@@ -170,7 +170,7 @@ GET /memos/5afbe8622c7caff319d454df
     "content": "contentExample"
 }
 ```
-## <span id="memoUpdate">Update</span>
+## <span id="memo-update">Update</span>
 #### URL
 - PUT /memos/:id
 
@@ -216,7 +216,7 @@ PUT /memos/5afbe8622c7caff319d454df
 }
 ```
 
-## <span id="memoDelete">Delete</span>
+## <span id="memo-delete">Delete</span>
 #### URL
 - DELETE /memos/:id
 
@@ -251,7 +251,7 @@ DELETE /memos/5afbe8622c7caff319d454df
 ```
 
 # <span id="label">Label</span>
-## <span id="labelList">List</span>
+## <span id="label-list">List</span>
 #### URL
 - GET /labels
 
@@ -303,7 +303,7 @@ GET /labels
     }
 ]
 ```
-## <span id="labelCreate">Create</span>
+## <span id="label-create">Create</span>
 #### URL
 - POST /labels
 
@@ -347,7 +347,7 @@ POST /labels
     "memos": []
 }
 ```
-## <span id="labelGet">Get</span>
+## <span id="label-get">Get</span>
 #### URL
 - GET /labels/:id
 
@@ -394,7 +394,7 @@ GET /labels/5afbee91141592fc9850ae38
     ]
 }
 ```
-## <span id="labelUpdate">Update</span>
+## <span id="label-update">Update</span>
 #### URL
 - PUT /labels/:id
 
@@ -453,7 +453,7 @@ PUT /labels/5afbee91141592fc9850ae38
 }
 ```
 
-## <span id="labelDelete">Delete</span>
+## <span id="label-delete">Delete</span>
 #### URL
 - DELETE /labels/:id
 
@@ -500,7 +500,7 @@ DELETE /labels/5afbe8622c7caff319d454df
     ]
 }
 ```
-## <span id="labelAddMemos">Add Memos</span>
+## <span id="label-add-memos">Add Memos</span>
 #### URL
 - POST /labels/:id/memos
 
@@ -566,7 +566,7 @@ POST /labels/5afbee91141592fc9850ae38/memos
 }
 ```
 
-## <span id="labelRemoveMemos">Remove Memos</span>
+## <span id="label-remove-memos">Remove Memos</span>
 #### URL
 - DELETE /labels/:id/memos
 
