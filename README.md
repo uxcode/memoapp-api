@@ -3,7 +3,7 @@
 Angular, NodeJS, ExpressJS and MongoDB RESTful MemoApp API.
 This repository was implemented with origin from [todoAPIjs](https://github.com/amejiarosario/todoAPIjs)
 
-#DB
+# DB
 Install mognoDB if not installed
 
 - Mac:
@@ -22,7 +22,7 @@ Start mongoDB at project root (with dbpath)
 mongod --dbpath ./data/db/
 ```
 
-#API
+# API
 Install dependencies
 
 ```bash
