@@ -37,18 +37,18 @@ PORT=3000 npm start
 
 # API Spec
 ### [Memo](#memo)
-- [List](#memo-list)
-- [Get](#memo-get)
-- [Update](#memo-update)
-- [Delete](#memo-delete)
+- [List](#list)
+- [Get](#get)
+- [Update](#update)
+- [Delete](#delete)
 
 ### [Label](#label)
-- [List](#label-list)
-- [Get](#label-get)
-- [Update](#label-update)
-- [Delete](#label-delete)
-- [Add Memos](#label-add-memos)
-- [Remove Memos](#label-remove-memos)
+- [List](#list-1)
+- [Get](#get-1)
+- [Update](#update-1)
+- [Delete](#delete-1)
+- [Add Memos](#add-memos)
+- [Remove Memos](#remove-memos)
 
 # <span id="memo">Memo</span>
 ## <span id="memo-list">List</span>
