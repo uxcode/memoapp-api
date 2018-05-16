@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var todos = require('./routes/todos');
+var memos = require('./routes/memos');
 
 // load mongoose package
 var mongoose = require('mongoose');
@@ -16,7 +15,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost/todo-api')
+mongoose.connect('mongodb://localhost/drama-memoapp-api')
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -35,8 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/todos', todos);
+app.use('/memos', memos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

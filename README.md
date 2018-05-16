@@ -1,17 +1,35 @@
-# Todo
+# Drama MemoApp
 
-Angular, NodeJS, ExpressJS and MongoDB RESTful API Tutorial.
-See [Creating a RESTful API Tutorial](http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/) post for more details.
+Angular, NodeJS, ExpressJS and MongoDB RESTful MemoApp API.
+This repository was implemented with origin from [todoAPIjs](https://github.com/amejiarosario/todoAPIjs)
 
-# Installation
+#db
+Install mognoDB if not installed
 
-You just need to install dependencies:
+- Mac:
+```bash
+brew install mongodb
+```
+
+- Ubuntu:
+```bash
+sudo apt-get -y install mongodb
+```
+
+Start mongoDB at project root (with dbpath)
+
+```bash
+mongod --dbpath ./data/db/
+```
+
+#api
+Install dependencies
 
 ```bash
 npm install
 ```
 
-And start the program
+Start api server
 
 ```bash
 npm start
