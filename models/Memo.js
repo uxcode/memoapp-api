@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var MemoSchema = new mongoose.Schema(
   {
-    title: String,
-    content: String
+    title: { type: String, required: true },
+    content: { type: String, default: '' },
   },
   {
     timestamps: true
