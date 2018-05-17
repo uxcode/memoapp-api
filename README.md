@@ -1,12 +1,11 @@
 # Drama MemoApp
 
 Angular, NodeJS, ExpressJS and MongoDB RESTful MemoApp API.
-This repository was implemented with origin from [todoAPIjs](https://github.com/amejiarosario/todoAPIjs)
-
-This project is *NOT* considered about exceptions
+This application was implemented based on [todoAPIjs](https://github.com/amejiarosario/todoAPIjs).
+Please note that the application is *NOT* designed to carefully take exceptions into account.
 
 # DB
-Install mognoDB if not installed
+Install MognoDB if not installed
 
 - Mac:
 ```bash
@@ -19,26 +18,26 @@ sudo apt-get -y install mongodb
 ```
 - Windows: [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-Start mongoDB at project root (with dbpath)
+Start a MongoDB process at the project root directory (with a dbpath option)
 
 ```bash
 mongod --dbpath ./data/db/
 ```
 
 # API
-Install dependencies
+Install dependencies you need to have the API application up and running.
 
 ```bash
 npm install
 ```
 
-Start api server
+Start the API server
 
 ```bash
 PORT=3000 npm start
 ```
 
-# API Spec
+# API Specifications
 ### [Memo](#memo-1)
 - [List](#list)
 - [Get](#get)
@@ -62,7 +61,7 @@ PORT=3000 npm start
 GET /memos
 
 #### Response
-- Response list of all memo objects
+- A list of all memo objects
 
 | Level1 |
 |--------|
@@ -118,7 +117,7 @@ POST /memos
 }
 ```
 #### Response
-- Response memo object which was created
+- A newly created memo object
 
 | Level1 |
 |--------|
@@ -151,7 +150,7 @@ POST /memos
 #### Request Example
 GET /memos/5afbe8622c7caff319d454df
 #### Response
-- Response memo object
+- A requested memo object matched to a given ID
 
 | Level1 |
 |--------|
@@ -197,7 +196,7 @@ PUT /memos/5afbe8622c7caff319d454df
 ```
 
 #### Response
-- Response memo object which was updated
+- A updated memo object
 
 | Level1 |
 |--------|
@@ -230,7 +229,7 @@ PUT /memos/5afbe8622c7caff319d454df
 DELETE /memos/5afbe8622c7caff319d454df
 
 #### Response
-- Response memo object which was deleted
+- A deleted memo object
 
 | Level1 |
 |--------|
@@ -265,7 +264,7 @@ DELETE /memos/5afbe8622c7caff319d454df
 GET /labels
 
 #### Response
-- Response list of all label objects
+- A list of all label objects
 
 | Level1 | Level2 |
 |--------|--------|
@@ -348,7 +347,7 @@ POST /labels
 }
 ```
 #### Response
-- Response label object which was created
+- A newly created label object
 
 | Level1 | Level2 |
 |--------|--------|
@@ -385,7 +384,7 @@ POST /labels
 #### Request Example
 GET /labels/5afbee91141592fc9850ae38
 #### Response
-- Response label object
+- A requested label object matched to a given ID
 
 | Level1 | Level2 |
 |--------|--------|
@@ -441,7 +440,7 @@ PUT /labels/5afbee91141592fc9850ae38
 ```
 
 #### Response
-- Response label object which was updated
+- A updated label object
 
 | Level1 | Level2 |
 |--------|--------|
@@ -486,7 +485,7 @@ PUT /labels/5afbee91141592fc9850ae38
 DELETE /labels/5afcf202a6841395c9c4af33
 
 #### Response
-- Response label object which was deleted
+- A deleted label object
 
 | Level1 | Level2 |
 |--------|--------|
@@ -531,7 +530,7 @@ DELETE /labels/5afcf202a6841395c9c4af33
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
-| memoIds | X | - | array of memo ids |
+| memoIds | X | - | array of memo IDs |
 #### Request Example
 POST /labels/5afbee91141592fc9850ae38/memos
 
@@ -542,7 +541,7 @@ POST /labels/5afbee91141592fc9850ae38/memos
 ```
 
 #### Response
-- Response label object which was updated
+- A updated label object
 
 | Level1 | Level2 |
 |--------|--------|
@@ -594,7 +593,7 @@ POST /labels/5afbee91141592fc9850ae38/memos
 
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
-| memoIds | X | - | array of memo ids |
+| memoIds | X | - | array of memo IDs |
 #### Request Example
 DELETE /labels/5afbee91141592fc9850ae38/memos
 
@@ -605,7 +604,7 @@ DELETE /labels/5afbee91141592fc9850ae38/memos
 ```
 
 #### Response
-- Response label object which was updated
+- A deleted label object
 
 | Level1 | Level2 |
 |--------|--------|
