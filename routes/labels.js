@@ -5,9 +5,13 @@ var Label = require('../models/Label.js');
 
 /* GET /labels listing. */
 router.get('/', function(req, res, next) {
-  Label
-    .find()
-    .populate('memos')
+  var query;
+  if (req.query.populate === 'false') {
+    query = Label.find();
+  } else {
+    query = Label.find().populate('memos');
+  }
+  query
     .exec(function (err, labels) {
       if (err) return next(err);
       res.json(labels);

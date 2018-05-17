@@ -255,6 +255,11 @@ DELETE /memos/5afbe8622c7caff319d454df
 #### URL
 - GET /labels
 
+#### Query Parameters
+
+| Name | Default |Description |
+|--------|--------|--------|
+| populate | true | If set false(GET /labels?populate=false), response labels' memos are just id list |
 #### Request Example
 GET /labels
 
