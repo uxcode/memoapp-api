@@ -40,14 +40,8 @@ router.get('/:id', function(req, res, next) {
 
 /* PUT /labels/:id */
 router.put('/:id', function(req, res, next) {
-  var memoIds = req.body.memoIds;
-  var convertedData = {};
-  if (Array.isArray(memoIds)) {
-    convertedData.memos = memoIds;
-  }
-  var label = Object.assign({}, req.body, convertedData);
   Label
-    .findByIdAndUpdate(req.params.id, label, {new: true})
+    .findByIdAndUpdate(req.params.id, req.body, {new: true})
     .populate('memos')
     .exec(function (err, label) {
       if (err) return next(err);
