@@ -39,13 +39,13 @@ PORT=3000 npm start
 ```
 
 # API Spec
-### [Memo](#memo)
+### [Memo](#memo-1)
 - [List](#list)
 - [Get](#get)
 - [Update](#update)
 - [Delete](#delete)
 
-### [Label](#label)
+### [Label](#label-1)
 - [List](#list-1)
 - [Get](#get-1)
 - [Update](#update-1)
