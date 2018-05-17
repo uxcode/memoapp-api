@@ -6,7 +6,8 @@ var LabelSchema = new mongoose.Schema(
     memos: [ {type : mongoose.Schema.ObjectId, ref : 'Memo'} ]
   },
   {
-    timestamps: true
+    timestamps: true,
+    versionKey: false
   }
 );
 

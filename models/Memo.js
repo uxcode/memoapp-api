@@ -6,7 +6,8 @@ var MemoSchema = new mongoose.Schema(
     content: { type: String, default: '' },
   },
   {
-    timestamps: true
+    timestamps: true,
+    versionKey: false
   }
 );
 

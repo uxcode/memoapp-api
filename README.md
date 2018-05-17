@@ -3,6 +3,8 @@
 Angular, NodeJS, ExpressJS and MongoDB RESTful MemoApp API.
 This repository was implemented with origin from [todoAPIjs](https://github.com/amejiarosario/todoAPIjs)
 
+This project is *NOT* considered about exceptions
+
 # DB
 Install mognoDB if not installed
 
@@ -15,6 +17,7 @@ brew install mongodb
 ```bash
 sudo apt-get -y install mongodb
 ```
+- Windows: [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
 Start mongoDB at project root (with dbpath)
 
@@ -59,6 +62,8 @@ PORT=3000 npm start
 GET /memos
 
 #### Response
+- Response list of all memo objects
+
 | Level1 |
 |--------|
 | _id |
@@ -66,7 +71,6 @@ GET /memos
 | createdAt |
 | title |
 | content |
-| __v |
 ### Response Example
 
 ```json
@@ -76,7 +80,6 @@ GET /memos
         "updatedAt": "2018-05-16T08:07:47.688Z",
         "createdAt": "2018-05-16T08:06:57.499Z",
         "title": "memo1",
-        "__v": 0,
         "content": "memo1 content"
     },
     {
@@ -84,7 +87,6 @@ GET /memos
         "updatedAt": "2018-05-16T08:07:55.700Z",
         "createdAt": "2018-05-16T08:06:58.040Z",
         "title": "memo2",
-        "__v": 0,
         "content": "memo3 content"
     },
     {
@@ -92,7 +94,6 @@ GET /memos
         "updatedAt": "2018-05-16T08:07:32.366Z",
         "createdAt": "2018-05-16T08:06:58.410Z",
         "title": "memo3",
-        "__v": 0,
         "content": ""
     }
 ]
@@ -117,6 +118,8 @@ POST /memos
 }
 ```
 #### Response
+- Response memo object which was created
+
 | Level1 |
 |--------|
 | _id |
@@ -124,12 +127,10 @@ POST /memos
 | createdAt |
 | title |
 | content |
-| __v |
 ### Response Example
 
 ```json
 {
-    "__v": 0,
     "updatedAt": "2018-05-16T08:14:26.388Z",
     "createdAt": "2018-05-16T08:14:26.388Z",
     "title": "titleExample",
@@ -150,6 +151,8 @@ POST /memos
 #### Request Example
 GET /memos/5afbe8622c7caff319d454df
 #### Response
+- Response memo object
+
 | Level1 |
 |--------|
 | _id |
@@ -157,7 +160,6 @@ GET /memos/5afbe8622c7caff319d454df
 | createdAt |
 | title |
 | content |
-| __v |
 ### Response Example
 
 ```json
@@ -166,7 +168,6 @@ GET /memos/5afbe8622c7caff319d454df
     "updatedAt": "2018-05-16T08:14:26.388Z",
     "createdAt": "2018-05-16T08:14:26.388Z",
     "title": "titleExample",
-    "__v": 0,
     "content": "contentExample"
 }
 ```
@@ -178,7 +179,7 @@ GET /memos/5afbe8622c7caff319d454df
 
 | Name | Description |
 |--------|--------|
-| ID | Id of memo to get |
+| ID | Id of memo to delete |
 #### Parameters
 
 | Level1 | Required | Default | Description |
@@ -196,6 +197,8 @@ PUT /memos/5afbe8622c7caff319d454df
 ```
 
 #### Response
+- Response memo object which was updated
+
 | Level1 |
 |--------|
 | _id |
@@ -203,7 +206,6 @@ PUT /memos/5afbe8622c7caff319d454df
 | createdAt |
 | title |
 | content |
-| __v |
 ### Response Example
 ```json
 {
@@ -211,7 +213,6 @@ PUT /memos/5afbe8622c7caff319d454df
     "updatedAt": "2018-05-16T08:29:46.433Z",
     "createdAt": "2018-05-16T08:14:26.388Z",
     "title": "titleUpdated",
-    "__v": 0,
     "content": "contentUpdated"
 }
 ```
@@ -224,11 +225,13 @@ PUT /memos/5afbe8622c7caff319d454df
 
 | Name | Description |
 |--------|--------|
-| ID | Id of memo to get |
+| ID | Id of memo to remove |
 #### Request Example
 DELETE /memos/5afbe8622c7caff319d454df
 
 #### Response
+- Response memo object which was deleted
+
 | Level1 |
 |--------|
 | _id |
@@ -236,7 +239,6 @@ DELETE /memos/5afbe8622c7caff319d454df
 | createdAt |
 | title |
 | content |
-| __v |
 ### Response Example
 
 ```json
@@ -245,7 +247,6 @@ DELETE /memos/5afbe8622c7caff319d454df
     "updatedAt": "2018-05-16T08:29:46.433Z",
     "createdAt": "2018-05-16T08:14:26.388Z",
     "title": "titleExample",
-    "__v": 0,
     "content": "contentExample"
 }
 ```
@@ -259,25 +260,26 @@ DELETE /memos/5afbe8622c7caff319d454df
 
 | Name | Default |Description |
 |--------|--------|--------|
-| populate | true | If set false(GET /labels?populate=false), response labels' memos are just id list |
+| populate | true | If set false, response labels' memos are just id list |
 #### Request Example
 GET /labels
 
 #### Response
+- Response list of all label objects
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
+- GET /labels
 
 ```json
 [
@@ -286,14 +288,12 @@ GET /labels
         "updatedAt": "2018-05-16T08:53:19.084Z",
         "createdAt": "2018-05-16T08:40:49.193Z",
         "title": "titleUpdated",
-        "__v": 0,
         "memos": [
             {
                 "_id": "5afbe6a12c7caff319d454d8",
                 "updatedAt": "2018-05-16T08:07:47.688Z",
                 "createdAt": "2018-05-16T08:06:57.499Z",
                 "title": "memo1",
-                "__v": 0,
                 "content": "memo1 cotent"
             }
         ]
@@ -303,7 +303,28 @@ GET /labels
         "updatedAt": "2018-05-16T08:54:21.550Z",
         "createdAt": "2018-05-16T08:54:21.550Z",
         "title": "titleExample",
-        "__v": 0,
+        "memos": []
+    }
+]
+```
+- GET /labels?populate=false
+
+```json
+[
+    {
+        "_id": "5afbee91141592fc9850ae38",
+        "updatedAt": "2018-05-16T08:53:19.084Z",
+        "createdAt": "2018-05-16T08:40:49.193Z",
+        "title": "titleUpdated",
+        "memos": [
+        	"5afbe6a12c7caff319d454d8"
+    	]
+    },
+    {
+        "_id": "5afbf1bd144298fffa301c0e",
+        "updatedAt": "2018-05-16T08:54:21.550Z",
+        "createdAt": "2018-05-16T08:54:21.550Z",
+        "title": "titleExample",
         "memos": []
     }
 ]
@@ -327,24 +348,23 @@ POST /labels
 }
 ```
 #### Response
+- Response label object which was created
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 
 ```json
 {
-    "__v": 0,
     "updatedAt": "2018-05-16T08:54:21.550Z",
     "createdAt": "2018-05-16T08:54:21.550Z",
     "title": "titleExample",
@@ -365,19 +385,19 @@ POST /labels
 #### Request Example
 GET /labels/5afbee91141592fc9850ae38
 #### Response
+- Response label object
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 
 ```json
@@ -386,14 +406,12 @@ GET /labels/5afbee91141592fc9850ae38
     "updatedAt": "2018-05-16T08:53:19.084Z",
     "createdAt": "2018-05-16T08:40:49.193Z",
     "title": "titleUpdated",
-    "__v": 0,
     "memos": [
         {
             "_id": "5afbe6a12c7caff319d454d8",
             "updatedAt": "2018-05-16T08:07:47.688Z",
             "createdAt": "2018-05-16T08:06:57.499Z",
             "title": "memo1",
-            "__v": 0,
             "content": "memo1 conent"
         }
     ]
@@ -413,7 +431,6 @@ GET /labels/5afbee91141592fc9850ae38
 | Level1 | Required | Default | Description |
 |--------|--------|--------|--------|
 | title | X | - | title of label |
-| memoIds | X | - | array of memo ids |
 #### Request Example
 PUT /labels/5afbee91141592fc9850ae38
 
@@ -424,19 +441,19 @@ PUT /labels/5afbee91141592fc9850ae38
 ```
 
 #### Response
+- Response label object which was updated
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 ```json
 {
@@ -444,14 +461,12 @@ PUT /labels/5afbee91141592fc9850ae38
     "updatedAt": "2018-05-16T08:59:21.007Z",
     "createdAt": "2018-05-16T08:40:49.193Z",
     "title": "titleUpdated",
-    "__v": 0,
     "memos": [
         {
             "_id": "5afbe6a12c7caff319d454d8",
             "updatedAt": "2018-05-16T08:07:47.688Z",
             "createdAt": "2018-05-16T08:06:57.499Z",
             "title": "memo1",
-            "__v": 0,
             "content": "memo1 conent"
         }
     ]
@@ -468,41 +483,39 @@ PUT /labels/5afbee91141592fc9850ae38
 |--------|--------|
 | ID | Id of label to remove |
 #### Request Example
-DELETE /labels/5afbe8622c7caff319d454df
+DELETE /labels/5afcf202a6841395c9c4af33
 
 #### Response
+- Response label object which was deleted
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 
 ```json
 {
-    "_id": "5afbee91141592fc9850ae38",
-    "updatedAt": "2018-05-16T09:10:13.338Z",
-    "createdAt": "2018-05-16T08:40:49.193Z",
-    "title": "titleUpdated",
-    "__v": 0,
     "memos": [
         {
-            "_id": "5afbe6a12c7caff319d454d8",
-            "updatedAt": "2018-05-16T08:07:47.688Z",
-            "createdAt": "2018-05-16T08:06:57.499Z",
-            "title": "memo1",
-            "__v": 0,
-            "content": "memo1 conent"
+            "content": "23432432",
+            "_id": "5afcf21ba6841395c9c4af35",
+            "title": "1233",
+            "createdAt": "2018-05-17T03:08:11.909Z",
+            "updatedAt": "2018-05-17T03:08:11.909Z",
         }
-    ]
+    ],
+    "_id": "5afcf202a6841395c9c4af33",
+    "title": "1233",
+    "createdAt": "2018-05-17T03:07:46.346Z",
+    "updatedAt": "2018-05-17T07:09:05.584Z",
 }
 ```
 ## <span id="label-add-memos">Add Memos</span>
@@ -529,19 +542,19 @@ POST /labels/5afbee91141592fc9850ae38/memos
 ```
 
 #### Response
+- Response label object which was updated
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 ```json
 {
@@ -549,14 +562,12 @@ POST /labels/5afbee91141592fc9850ae38/memos
     "updatedAt": "2018-05-16T08:44:56.916Z",
     "createdAt": "2018-05-16T08:40:49.193Z",
     "title": "titleUpdated",
-    "__v": 0,
     "memos": [
         {
             "_id": "5afbe6a12c7caff319d454d8",
             "updatedAt": "2018-05-16T08:07:47.688Z",
             "createdAt": "2018-05-16T08:06:57.499Z",
             "title": "memo1",
-            "__v": 0,
             "content": "memo1 content"
         },
         {
@@ -564,7 +575,6 @@ POST /labels/5afbee91141592fc9850ae38/memos
             "updatedAt": "2018-05-16T08:07:55.700Z",
             "createdAt": "2018-05-16T08:06:58.040Z",
             "title": "memo2",
-            "__v": 0,
             "content": "memo3 content"
         }
     ]
@@ -595,19 +605,19 @@ DELETE /labels/5afbee91141592fc9850ae38/memos
 ```
 
 #### Response
+- Response label object which was updated
+
 | Level1 | Level2 |
 |--------|--------|
 | _id |
 | updatedAt |
 | createdAt |
 | title |
-| __v |
 | memos | _id |
 || updatedAt |
 || createdAt |
 || title |
 || content |
-|| __v ||
 ### Response Example
 ```json
 {
@@ -615,14 +625,12 @@ DELETE /labels/5afbee91141592fc9850ae38/memos
     "updatedAt": "2018-05-16T08:53:19.084Z",
     "createdAt": "2018-05-16T08:40:49.193Z",
     "title": "titleUpdated",
-    "__v": 0,
     "memos": [
         {
             "_id": "5afbe6a12c7caff319d454d8",
             "updatedAt": "2018-05-16T08:07:47.688Z",
             "createdAt": "2018-05-16T08:06:57.499Z",
             "title": "memo1",
-            "__v": 0,
             "content": "memo1 content"
         }
     ]
