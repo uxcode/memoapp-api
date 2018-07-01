@@ -76,7 +76,7 @@ router.post('/:id/memos', function(req, res, next) {
 router.delete('/:id/memos', function(req, res, next) {
   var memoIds = req.body.memoIds || [];
   Label
-    .findByIdAndUpdate(req.params.id, { $pop: { memos: { $each: memoIds } } }, {new: true})
+    .findByIdAndUpdate(req.params.id, { $pullAll: { memos: memoIds } }, {new: true})
     .populate('memos')
     .exec(function (err, label) {
       if (err) return next(err);
