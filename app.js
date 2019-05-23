@@ -13,19 +13,12 @@ var memos = require('./routes/memos');
 // load mongoose package
 var mongoose = require('mongoose');
 
-// Use native Node promises
-// mongoose.Promise = global.Promise;
-
-// // connect to MongoDB
-// mongoose.connect('mongodb://memoapp:example@localhost:27017/drama-memoapp-api')
-//   .then(() =>  console.log('connection succesful'))
-//   .catch((err) => console.error(err));
-
+// try reconnect when
 var db = mongoose.connection;
-var dbURI = 'mongodb://memoapp:example@localhost:27017/drama-memoapp-api'
+var dbURI = 'mongodb://memoapp:memoapp-pw@memo-app-mongo:27017/drama-memoapp-api'
 
 db.on('connecting', function() {
-  console.log('connecting to MongoDB...');
+  console.log('connecting to MongoDB...', dbURI);
 });
 db.on('error', function(error) {
   // console.error('Error in MongoDb connection: ' + error);
@@ -43,14 +36,16 @@ db.on('reconnected', function () {
 });
 db.on('disconnected', function() {
   console.log('MongoDB disconnected!');
-  setInterval(() => {
-    mongoose.connect(dbURI, {server:{auto_reconnect:true}});  
-  }, 2000);
-  
+  connectMongo();  
 });
-mongoose.connect(dbURI, {server:{auto_reconnect:true}});
 
+function connectMongo() {
+  setTimeout(() => {
+    mongoose.connect(dbURI, {server:{auto_reconnect:true}});  
+  }, 5000);
+}
 
+connectMongo();
 
 
 var app = express();
