@@ -17,7 +17,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost/drama-memoapp-api')
+mongoose.connect('mongodb://memoapp:memoapp-pw@localhost:27017/drama-memoapp-api')
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
